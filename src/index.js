@@ -10,6 +10,7 @@ const sampleFileNames = [
   'tajja-320kbps.mp3',
   'pirate-124kbps.mp3',
   'pirate-320kbps.mp3',
+  'forecast-320kbps.mp3',
 ];
 const sampleFiles = sampleFileNames
   .map(sampleFileName => fs.createReadStream(
@@ -23,6 +24,7 @@ const scriptFileNames = [
   'tajja.txt',
   'pirate.txt',
   'pirate.txt',
+  'forecast.txt',
 ];
 const scriptFiles = scriptFileNames
   .map(scriptFileName => String(fs.readFileSync(path.resolve(scriptPath, scriptFileName))));
