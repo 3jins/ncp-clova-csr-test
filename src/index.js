@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import levenshtein from 'fast-levenshtein';
 import callOpenApi from './ncp/openapi/api/callApi';
 
 const dataPath = path.resolve('data');
@@ -32,9 +33,16 @@ sampleFiles.forEach(async (sampleFile, idx) => {
     '/recog/v1/stt?lang=Kor',
     sampleFile,
   );
+  const originalScript = scriptFiles[idx];
   console.log(`---- ${sampleFileNames[idx]} ----`);
   console.log('[original script]');
-  console.log(scriptFiles[idx]);
+  console.log(originalScript);
   console.log('[Clova recognition result]');
   console.log(text);
+
+  const distance = levenshtein.get(originalScript, text);
+  const similarity = (originalScript.length - distance) / originalScript.length;
+  const roundedSimilarity = Math.round(similarity * 10000) / 10000;
+
+  console.log(`Similarity(distance): ${roundedSimilarity * 100}%`);
 });
