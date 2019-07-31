@@ -19,6 +19,7 @@ $ npm run dev
 원문을 `O`, 원문의 길이를 `l`, 클로바에 의한 인식결과문을 `R`, Levenshtein 거리 함수를 `L`이라 할 때, 정확도는 다음과 같이 계산합니다. 별로 거창하지 않아요.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/25216837/61993404-7675c480-b0a6-11e9-8c84-daab8f227128.png" width="20%"/></p>
+
 ## 테스트 결과
 
 ### 1. 타짜
